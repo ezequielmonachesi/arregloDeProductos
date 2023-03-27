@@ -61,20 +61,13 @@ let listaProductos = [
 let protectorSolar = listaProductos.filter((element) =>
   element.nombreProducto.includes("Protector solar")
 );
-let noEncontrado = [
-  {
-    nombreProducto: "Sérum facial con PHA",
-    precio: 3200,
-    categoria: "Sérum",
-  },
-  { nombreProducto: "Bálsamo labial", precio: 3200, categoria: "Labios" },
-  { nombreProducto: "Crema contorno de ojos", precio: 3200, categoria: "Ojos" },
-];
-let serum = [listaProductos.find((i) => i.categoria.includes("Sérum"))];
-let bruma = [listaProductos.find((i) => i.categoria.includes("bruma"))];
+
+let serum = listaProductos.filter((i) => i.categoria.includes('Sérum'));
+
+let bruma = listaProductos.filter((i)=> i.nombreProducto.includes('bruma'));
 
 function crearTabla(array, titulo = "No hay un título disponible") {
-  document.write(`<h1>Tabla de ${titulo}</h1>`);
+  document.write(`<h1>${titulo}</h1>`);
   document.write(`
     <table>
       <thead>
@@ -98,3 +91,8 @@ function crearTabla(array, titulo = "No hay un título disponible") {
     </table>
     `);
 }
+
+crearTabla(listaProductos, 'Lista de productos');
+crearTabla(protectorSolar, 'Lista de Protectores solares');
+crearTabla(serum, 'Lista de Serúm');
+crearTabla(bruma);
